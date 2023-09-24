@@ -34,4 +34,3 @@ collatz_df <- tibble(
   
 collatz_df
 
-
