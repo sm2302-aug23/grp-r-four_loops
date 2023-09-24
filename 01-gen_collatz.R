@@ -1,19 +1,6 @@
 #Task 1 -----------------------------------
 
 library(tidyverse)
-
-n <- 3
-
-gen_collatz <- function(n){
-    if (n %% 2 == 0) {n/2}
-    else {3 * n + 1}
-}
-
-while(n != 1) {
-  n <- gen_collatz(n)
-  print(n)
-}
-
 library(tibble)
 
 gen_collatz <- function(n) {
@@ -41,8 +28,6 @@ collatz_seqs <- lapply(start_values, gen_collatz)
 collatz_df <- tibble(
     start = start_values,
     seq = collatz_seqs,
-    length = sapply(collatz_seqs, length),
-    max_val = sapply(collatz_seqs, max)
   )
   
 collatz_df
