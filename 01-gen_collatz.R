@@ -1,3 +1,5 @@
+#Task 1 -----------------------------------
+
 library(tidyverse)
 
 n <- 3
@@ -20,24 +22,41 @@ gen_collatz <- function(n) {
     return(NULL)
   }
   
-  sequence <- c(n)
-  while (n > 1) {
-    if (n %% 2 == 0) {
-      n <- n / 2
-    } else{n <- 3 * n + 1}
-    sequence <- c(sequence, n)
+    collatz_seq <- c(n)
+    while (n != 1) {
+      if (n %% 2 == 0) {
+        n <- n / 2
+      } else {
+        n <- 3 * n + 1
+      }
+      collatz_seq <- c(collatz_seq, n)
+    }
+    
+    return(collatz_seq)
   }
   
-  return(sequence)
-}
+  start_values <- 1:10000
+  collatz_seqs <- lapply(start_values, gen_collatz)
+  
+  collatz_df <- tibble(
+    start = start_values,
+    seq = collatz_seqs,
+    length = sapply(collatz_seqs, length),
+    max_val = sapply(collatz_seqs, max)
+  )
+  
+  collatz_df
 
-collatz_df <- tibble(start = numeric(0), seq = list())
 
-for (i in 1:10000) {
-  collatz_seq <- gen_collatz(i)
-  if (!is.null(collatz_seq)) {
-    collatz_df <- collatz_df %>% add_row(start = i, seq = list(collatz_seq))
-  }
-}
+#Task 2 --------------------------------
 
-collatz_df
+
+
+
+
+
+
+
+
+
+
