@@ -1,5 +1,3 @@
-#Task 1 -----------------------------------
-
 library(tidyverse)
 library(tibble)
 
@@ -43,6 +41,3 @@ collatz_df <- collatz_df %>%
   )
 
 collatz_df
-
-
-
