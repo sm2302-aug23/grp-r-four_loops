@@ -14,3 +14,9 @@ max_val_int <- collatz_df %>%
 
 max_val_int
 
+even_odd_avg_len <- collatz_df %>%
+  group_by(parity) %>%
+  summarise(avg_len = mean(length), sd_len = sd(length))
+
+even_odd_avg_len
+
