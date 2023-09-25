@@ -4,31 +4,45 @@ library(tidyverse)
 library(tibble)
 
 gen_collatz <- function(n) {
-  if (n <= 0) {
-    cat("Invalid input. Please enter a positive integer.\n")
+  if (!is.numeric(n) || n <= 0 || !is.integer(n)) {
+    warning("Invalid input. n must be positive integer.")
     return(NULL)
   }
   
-collatz_seq <- c(n)
-while (n != 1) {
-      if (n %% 2 == 0) {
-        n <- n / 2
-      } else {
-        n <- 3 * n + 1
-      }
-      collatz_seq <- c(collatz_seq, n)
+  sequence <- c(n)
+  while (n != 1) {
+    if (n %% 2 == 0) {
+      n <- n / 2
+    } else {
+      n <- 3 * n + 1
     }
-    
-    return(collatz_seq)
+    sequence <- c(sequence, n)
   }
   
-start_values <- 1:10000
-collatz_seqs <- lapply(start_values, gen_collatz)
-  
+  return(sequence)
+}
+
 collatz_df <- tibble(
-    start = start_values,
-    seq = collatz_seqs,
+  start = integer(0),
+  seq = list()
+)
+
+for (i in 1:10000) {
+  collatz_seq <- gen_collatz(i)
+  if (!is.null(collatz_seq)) {
+    collatz_df <- collatz_df %>%
+      add_row(start = i, seq = list(collatz_seq))
+  }
+}
+
+collatz_df <- collatz_df %>%
+  mutate(
+    length = lengths(seq),
+    parity = ifelse(start %% 2 == 0, "Even", "Odd"),
+    max_val = sapply(seq, max)
   )
-  
+
 collatz_df
+
+
 
