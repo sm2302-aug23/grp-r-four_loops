@@ -9,3 +9,5 @@ library(ggplot2)
       x = "Starting Integer",
       y = "Length of the sequence"
     ))
+
+identify(y ~ x, labels = paste0("(", round(1, y), ", ", round(y, 2), ")"))
