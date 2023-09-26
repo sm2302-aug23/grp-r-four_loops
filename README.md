@@ -7,3 +7,9 @@
 - Please also read [`INSTRUCTIONS.md`](INSTRUCTIONS.md) for specific
 submission instructions and marking rubric.
 
+Task 1 : @Farzy
+Task 2 : @Farzy
+Task 3 : @Faathimah
+Task 4 : @Hamizah
+Task 5 : 
+Task 6 : 
