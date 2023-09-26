@@ -37,7 +37,6 @@ collatz_df <- collatz_df %>%
   mutate(
     length = lengths(seq),
     parity = ifelse(start %% 2 == 0, "Even", "Odd"),
-    max_val = sapply(seq, max)
   )
 
 collatz_df
