@@ -40,3 +40,4 @@ collatz_df <- collatz_df %>%
   )
 
 collatz_df
+

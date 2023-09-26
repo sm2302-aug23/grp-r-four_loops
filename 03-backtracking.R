@@ -3,13 +3,12 @@ library(tibble)
 
 
 backtracks <- function(seq, start) {
-  for(value in seq) {if(value < start) {
-    print("True")
-  } %>%
+  for(val in seq) {if(value < start) {
     if(value > start) {
       print("super true")
-    }
   }
+  }
+}
 }
 
 f1 <- apply(X = collatz_df, 
