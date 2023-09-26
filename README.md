@@ -11,5 +11,5 @@ Task 1 : @Farzy
 Task 2 : @Farzy
 Task 3 : @Faathimah
 Task 4 : @Hamizah
-Task 5 : 
-Task 6 : 
+Task 5 : @Afdieka
+Task 6 : @Afdieka
